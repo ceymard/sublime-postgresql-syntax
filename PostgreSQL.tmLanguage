@@ -13,13 +13,26 @@
 	<key>foldingStopMarker</key>
 	<string>^\s*\)</string>
 	<key>name</key>
-	<string>SQL (PostgreSQL)</string>
+	<string>SQL (PostgreSQL by pwi)</string>
 	<key>patterns</key>
 	<array>
 		<dict>
 			<key>include</key>
 			<string>#comments</string>
 		</dict>
+		<!--
+			Support for plv8 !
+		<dict>
+			<key>begin</key>
+			<string>\$\$</string>
+			<key>end</key>
+			<string>(?i)\$\$\s+LANGUAGE\s+plv8</string>
+			<key>include</key>
+			<string>source.js</string>
+			<key>name</key>
+			<string>keyword.other.create.pgsql</string>
+		</dict>
+		-->
 		<dict>
 			<key>begin</key>
 			<string>(?i)^\s*(create)\s+(or\s+replace\s+)?(function|view)\s+(?:([\w]+|".+")\.)?([\w]+|".+")(?:[\(|\s)])</string>
@@ -257,6 +270,10 @@
 					<string>meta.dollar-quote.pgsql</string>
 					<key>patterns</key>
 					<array>
+						<dict>
+							<key>include</key>
+							<string>source.js</string>
+						</dict>
 						<dict>
 							<key>include</key>
 							<string>#dollar_quotes</string>
